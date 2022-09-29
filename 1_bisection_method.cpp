@@ -9,6 +9,10 @@ double f(double x)
 int main(int argc, char const *argv[])
 {
 
+    cout << "************************" << endl;
+    cout << "finding root of equation using bisection method " << endl;
+    cout << "************************" << endl;
+
     cout << "********" << endl;
     cout << "Name : Archit jain" << endl;
     cout << "Branch : Btech-cse" << endl;
@@ -34,7 +38,7 @@ int main(int argc, char const *argv[])
     while (fabs(f(end) - f(start)) >= 0.001)
     {
         double mid = start + (end - start) / 2;
-        cout << "iteration " << i++ << " - " << mid << endl;
+        cout << "At iteration " << i++ << " approximation to root is" << " - " << mid << endl;
 
         if (f(mid) * f(end) < 0)
         {
@@ -62,8 +66,7 @@ int main(int argc, char const *argv[])
         }
     }
 
-    cout << "********" << endl;
-    cout << "ans is ";
+    cout << "root of the given function using bisection method is ";
     cout << start << endl;
 
     return 0;
