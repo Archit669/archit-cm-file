@@ -1,25 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double f(double x)
-{
-    return pow(x, 3) - 4 * x - 9;
+double f(double x){
+    return pow(x,3)-4*x-9;
+}
+
+double derivatef(double x){
+    return 3*pow(x,2) - 4;
 }
 
 int main(int argc, char const *argv[])
 {
-
     cout << "************************" << endl;
-    cout << "finding root of equation using bisection method " << endl;
+    cout << "finding root of equation using newton raphson " << endl;
     cout << "************************" << endl;
-
-    cout << "********" << endl;
     cout << "Name : Archit jain" << endl;
     cout << "Branch : Btech-cse" << endl;
     cout << "section : CSE-B" << endl;
-    cout << "topic : bisection method" << endl;
+    cout << "topic : Newton Raphson" << endl;
     cout << "given expression is : x^3-4*x-9" << endl;
-    cout << "********" << endl;
+    cout << "**********************" << endl;
+
 
     double a = 0;
     double b = 1;
@@ -34,40 +35,26 @@ int main(int argc, char const *argv[])
     double end = b;
     int i = 1;
 
+    cout << "according to intermediate value property root lies between " << start << " and " << end << endl;
+    cout << "enter your choice : ";
+    
+
+    double last = start;
+    cin >> last;
     cout << "**iterations ***" << endl;
-    while (fabs(f(end) - f(start)) >= 0.001)
-    {
-        double mid = start + (end - start) / 2;
-        cout << "At iteration " << i++ << " approximation to root is" << " - " << mid << endl;
+    double x = last - f(last)/derivatef(last);
 
-        if (f(mid) * f(end) < 0)
-        {
-            start = mid;
-        }
-        else if (f(mid) * f(start) < 0)
-        {
-            end = mid;
-        }
-        else
-        {
-            if (start == 0)
-                break;
-            if (end == 0)
-            {
-                start = end;
-                break;
-            }
+    cout << "At iteration " << i++ << " approximation to root is" << " - " << x << endl;
 
-            if (mid == 0)
-            {
-                start = mid;
-                break;
-            }
-        }
+
+    while (fabs(last-x)> 0.001){
+        last = x;
+        x = x - f(x)/derivatef(x);
+       cout << "At iteration " << i++ << " approximation to root is" << " - " << x << endl;
     }
 
-    cout << "root of the given function using bisection method is ";
-    cout << start << endl;
+    cout << "root of the given function using newton raphson method is ";
+    cout << x << endl;
 
     return 0;
 }
