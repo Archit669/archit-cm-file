@@ -67,7 +67,6 @@ int main(int argc, char const *argv[])
     }
 
     cout << "root of the given function using bisection method is ";
-    cout << "ans is ";
     cout << start << endl;
 
     return 0;
