@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+double f(double x){
+    return 3*x + sin(x)- exp(x);
+}
+
+    cout << "************************" << endl;
+    cout << "finding root of equation using secant method" << endl;
+    cout << "************************" << endl;
+
+    cout << "********" << endl;
+    cout << "Name : Archit jain" << endl;
+    cout << "Branch : Btech-cse" << endl;
+    cout << "section : CSE-B" << endl;
+    cout << "topic : secant method" << endl;
+    cout << "given expression is : 3*x + sin(x) + exp(x)" << endl;
+    cout << "********" << endl;
+
+    double a = 0;
+    double b = 1;
+    int i = 1;
+    cout << "**iterations ***" << endl;
+    while (fabs(b-a)> 0.001){
+        double temp = b;
+        b = b - (f(b)*(b-a))/ (f(b)- f(a));
+        a = temp;
+       cout << "At iteration " << i++ << " approximation to root is" << " - " << b<< endl;
+    }
+    cout << "root of the given function using secant method is ";
+    cout << b << endl;
+    return 0;
+}
