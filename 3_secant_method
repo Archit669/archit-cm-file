@@ -5,6 +5,7 @@ double f(double x){
     return 3*x + sin(x)- exp(x);
 }
 
+int main(){
     cout << "************************" << endl;
     cout << "finding root of equation using secant method" << endl;
     cout << "************************" << endl;
